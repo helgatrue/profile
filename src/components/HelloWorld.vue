@@ -16,11 +16,11 @@
                     >
                         <v-card class="elevation-12">
                             <v-toolbar
-                                    color="primary"
+                                    color="indigo"
                                     dark
                                     flat
                             >
-                                <v-toolbar-title>Login form</v-toolbar-title>
+                                <v-toolbar-title>Authorization form</v-toolbar-title>
                                 <v-spacer></v-spacer>
 
                             </v-toolbar>
@@ -32,22 +32,20 @@
                                         method="post"
                                         ref="form"
                                         v-model="valid"
-
                                 >
                                     <v-text-field
+                                            v-bind="name1"
                                             v-model="name"
-                                            :counter="10"
+
+                                            :error-messages="nameErrors"
                                             :rules="nameRules"
                                             label="Name"
                                             required
+                                            @input="$v.name.$touch()"
+                                            @blur="$v.name.$touch()"
                                     ></v-text-field>
 
-                                    <v-text-field
-                                            v-model="email"
-                                            :rules="emailRules"
-                                            label="E-mail"
-                                            required
-                                    ></v-text-field>
+                                    <Password></Password>
 
                                     <v-checkbox
                                             v-model="checkbox"
@@ -70,24 +68,25 @@
                         </v-card>
                     </v-col>
                 </v-row>
+                <Page></Page>
             </v-container>
         </v-main>
     </v-app>
 </template>
 
 <script>
+    import Password from "@/components/Password";
+    import Page from "@/components/Page";
+
     export default {
         data: () => ({
+            data: {
+            },
             valid: true,
             name: '',
             nameRules: [
                 v => !!v || 'Name is required',
                 v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-            ],
-            email: '',
-            emailRules: [
-                v => !!v || 'E-mail is required',
-                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
             ],
             select: null,
             items: [
@@ -97,6 +96,10 @@
                 'Item 4',
             ],
             checkbox: false,
+            login: {
+                name1: 'abc',
+                email1: 'abc@m.com',
+            }
         }),
 
         methods: {
@@ -109,6 +112,10 @@
             validate() {
                 this.$refs.form.validate()
             },
+        },
+        components: {
+            Password,
+            Page
         },
     }
 </script>
