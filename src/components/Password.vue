@@ -9,7 +9,7 @@
                 hint="At least 8 characters"
                 value="wqfasds"
                 class="input-group--focused"
-                @click:append="show3 = !show3"
+                @click:append="show = !show"
         ></v-text-field>
     </v-form>
 </template>
@@ -23,7 +23,6 @@
                 rules: {
                     required: value => !!value || 'Required.',
                     min: v => v.length >= 8 || 'Min 8 characters',
-                    emailMatch: () => ('The email and password you entered don\'t match'),
                 },
             }
         },

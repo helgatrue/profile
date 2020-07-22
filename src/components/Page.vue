@@ -30,7 +30,9 @@
                 dark
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
             <v-toolbar-title>Personal profile</v-toolbar-title>
+
             <v-spacer></v-spacer>
 
                 <v-avatar>
