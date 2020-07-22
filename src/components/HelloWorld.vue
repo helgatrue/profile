@@ -32,11 +32,11 @@
                                         method="post"
                                         ref="form"
                                         v-model="valid"
+                                        :lazy-validation="lazy"
                                 >
                                     <v-text-field
-                                            v-bind="name1"
+                                            v-bind="name"
                                             v-model="name"
-
                                             :error-messages="nameErrors"
                                             :rules="nameRules"
                                             label="Name"
@@ -54,6 +54,7 @@
                                             required
                                     ></v-checkbox>
 
+                                    <router-link to="/page">
                                     <v-btn
                                             :disabled="!valid"
                                             color="success"
@@ -63,12 +64,14 @@
                                     >
                                         Send
                                     </v-btn>
+                                    </router-link>
+                                        <router-view></router-view>
+
                                 </v-form>
                             </v-container>
                         </v-card>
                     </v-col>
                 </v-row>
-                <Page></Page>
             </v-container>
         </v-main>
     </v-app>
@@ -76,7 +79,6 @@
 
 <script>
     import Password from "@/components/Password";
-    import Page from "@/components/Page";
 
     export default {
         data: () => ({
@@ -96,10 +98,7 @@
                 'Item 4',
             ],
             checkbox: false,
-            login: {
-                name1: 'abc',
-                email1: 'abc@m.com',
-            }
+            lazy: false,
         }),
 
         methods: {
@@ -115,7 +114,6 @@
         },
         components: {
             Password,
-            Page
         },
     }
 </script>
