@@ -1,28 +1,5 @@
 <template>
     <v-app id="inspire">
-        <v-navigation-drawer
-                v-model="drawer"
-                app
-        >
-            <v-list dense>
-                <v-list-item link>
-                    <v-list-item-action>
-                        <v-icon>mdi-home</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Home</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-                <v-list-item link>
-                    <v-list-item-action>
-                        <v-icon>mdi-email</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Contact</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-            </v-list>
-        </v-navigation-drawer>
 
         <v-app-bar
                 app
@@ -60,16 +37,14 @@
 
                         <template>
                             <v-card
-                                    max-width="344"
+                                    max-width="1000"
+                                    min-height="500"
                                     class="mx-auto"
                             >
                                 <v-card-title>User's data</v-card-title>
                                 <v-card-text>Name</v-card-text>
                                 <v-card-text>E-mail</v-card-text>
                                 <v-card-text>Password</v-card-text>
-                                <v-card-actions>
-                                    <v-btn text>Click</v-btn>
-                                </v-card-actions>
                             </v-card>
                         </template>
                     </v-col>

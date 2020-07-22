@@ -32,7 +32,7 @@
                                         method="post"
                                         ref="form"
                                         v-model="valid"
-                                        :lazy-validation="lazy"
+                                        lazy-validation
                                 >
                                     <v-text-field
                                             v-bind="name"
@@ -84,20 +84,14 @@
         data: () => ({
             data: {
             },
-            valid: true,
+            valid: false,
             name: '',
             nameRules: [
                 v => !!v || 'Name is required',
                 v => (v && v.length <= 10) || 'Name must be less than 10 characters',
             ],
             select: null,
-            items: [
-                'Item 1',
-                'Item 2',
-                'Item 3',
-                'Item 4',
-            ],
-            checkbox: false,
+            checkbox: true,
             lazy: false,
         }),
 
